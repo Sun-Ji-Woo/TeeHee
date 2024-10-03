@@ -3,104 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sun Ji Woo's Song Deck</title>
+    <title>Sun Ji Woo's Music Page</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
         body {
-            background-color: #1a1a2e;
-            color: #ffffff;
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #1a1a1a;
+            color: #fff;
+            transition: background-color 0.5s ease;
+        }
+        header {
+            background-color: #0077cc;
+            padding: 20px;
+            text-align: center;
         }
         nav {
-            background-color: #162447;
-            padding: 15px;
+            margin: 20px 0;
         }
         nav a {
-            color: #ffffff;
+            color: #fff;
             margin: 0 15px;
             text-decoration: none;
-            transition: color 0.3s;
         }
-        nav a:hover {
-            color: #e94560;
+        section {
+            padding: 20px;
+            display: none;
         }
-        .container {
-            position: relative;
-            height: 100vh; /* Full viewport height */
-            overflow: hidden; /* Hide overflow */
+        section.active {
+            display: block;
+            animation: slide 0.5s ease;
         }
-        .section {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            padding: 50px; /* Add padding for content */
-            opacity: 0; /* Start as invisible */
-            transform: translateY(20px); /* Start slightly below */
-            transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+        @keyframes slide {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        .active {
-            opacity: 1; /* Make visible */
-            transform: translateY(0); /* Slide in */
+        footer {
+            text-align: center;
+            margin: 20px 0;
         }
     </style>
 </head>
 <body>
+
+<header>
+    <h1>Welcome to My Music Page!</h1>
     <nav>
-        <a href="#about" class="nav-link">About Me</a>
-        <a href="#blog" class="nav-link">Blog</a>
-        <a href="#song-list" class="nav-link">Song List</a>
-        <a href="#qna" class="nav-link">Q&A</a>
+        <a href="#about-me">About Me</a>
+        <a href="#blog">Blog</a>
+        <a href="#song-list">Song List</a>
+        <a href="#qa">Q&A</a>
     </nav>
-    
-    <div class="container">
-        <div id="about" class="section active">
-            <h2>About Me</h2>
-            <p>Welcome to my music page! I'm Sun Ji Woo, and I love creating music that resonates with emotions and stories.</p>
-        </div>
-        
-        <div id="blog" class="section">
-            <h2>Blog</h2>
-            <p>A hobby, passion, or maybe a new valuable skill set. Either way, I am having fun with my works, ehe.</p>
-        </div>
-        
-        <div id="song-list" class="section">
-            <h2>Song List</h2>
-            <ul>
-                <li><a href="https://youtu.be/txbbw-JH8XA?si=IHOcfZJXL4BhSx2J">Don't Need the Moon to Shine</a></li>
-                <li><a href="https://youtu.be/R242qdoEeeY?si=_h4MWUHAIyy5z-Hk">My Dear Somebody</a></li>
-            </ul>
-        </div>
-        
-        <div id="qna" class="section">
-            <h2>Q&A</h2>
-            <p>Feel free to ask me anything about my music or my creative process!</p>
-        </div>
-    </div>
+</header>
 
-    <script>
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetId = e.target.getAttribute('href').substring(1);
-                const currentSection = document.querySelector('.active');
+<section id="about-me" class="active">
+    <h2>About Me</h2>
+    <p>Welcome to my music page! I'm Sun Ji Woo, and I love creating music that resonates with emotions and stories.</p>
+</section>
 
-                if (currentSection) {
-                    currentSection.classList.remove('active');
-                    currentSection.style.opacity = 0; // Fade out
-                    currentSection.style.transform = 'translateY(-20px)'; // Slide up
-                }
+<section id="blog">
+    <h2>Blog</h2>
+    <p>A hobby, passion, or maybe a new valuable skill set. Either way I am having fun with my works ehe.</p>
+</section>
 
-                const newSection = document.getElementById(targetId);
-                newSection.classList.add('active');
-                setTimeout(() => {
-                    newSection.style.opacity = 1; // Fade in
-                    newSection.style.transform = 'translateY(0)'; // Slide down
-                }, 50); // Slight delay for transition effect
+<section id="song-list">
+    <h2>Song List</h2>
+    <ul>
+        <li><a href="https://youtu.be/txbbw-JH8XA?si=bzNSHQRe5KTDbjPA" target="_blank">Don't Need the Moon to Shine</a></li>
+        <li><a href="https://youtu.be/R242qdoEeeY?si=fyTOZpes2UvXIP2s" target="_blank">My Dear Somebody</a></li>
+    </ul>
+</section>
+
+<section id="qa">
+    <h2>Q&A</h2>
+    <p>Feel free to ask me anything!</p>
+</section>
+
+<footer>
+    <p>Connect with me on <a href="https://instagram.com/sun_jiw00" target="_blank">Instagram</a> and <a href="https://www.youtube.com/@SunJiWoo2505" target="_blank">YouTube</a>.</p>
+</footer>
+
+<script>
+    const links = document.querySelectorAll('nav a');
+    const sections = document.querySelectorAll('section');
+
+    links.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+
+            sections.forEach(section => {
+                section.classList.remove('active');
             });
+
+            const targetSection = document.querySelector(targetId);
+            targetSection.classList.add('active');
         });
-    </script>
+    });
+</script>
+
 </body>
 </html>
