@@ -4,148 +4,151 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sun Ji Woo's Music Page</title>
-    <link rel="stylesheet" href="styles.css">
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #1e1e2f;
+            color: #d4d4dc;
             margin: 0;
-            padding: 0;
-            background-color: #1a1a1a;
-            color: #fff;
-            transition: background-color 0.5s ease;
         }
+
         header {
-            background-color: #0077cc;
+            background-color: #004aad;
             padding: 20px;
             text-align: center;
+            font-size: 22px;
+            color: white;
         }
+
         nav {
-            margin: 20px 0;
-        }
-        nav a {
-            color: #fff;
-            margin: 0 15px;
-            text-decoration: none;
-        }
-        section {
-            padding: 20px;
-            display: none;
-        }
-        section.active {
-            display: block;
-            animation: slide 0.5s ease;
-        }
-        @keyframes slide {
-            0% {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        footer {
-            text-align: center;
-            margin: 20px 0;
-        }
-        .video-container {
-            margin: 10px 0;
-        }
-        .video-container img {
-            width: 100%;
-            height: auto;
-        }
-        .qa-form {
             display: flex;
-            flex-direction: column;
-            max-width: 400px;
-            margin: 20px auto;
+            justify-content: center;
+            background-color: #0055d4;
         }
-        .qa-form input, .qa-form textarea {
-            margin: 5px 0;
-            padding: 10px;
-            font-size: 16px;
+
+        nav a {
+            padding: 15px;
+            margin: 0 15px;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
         }
-        .qa-form button {
+
+        nav a:hover {
+            background-color: #0073ff;
+            transition: background-color 0.3s ease;
+        }
+
+        section {
+            padding: 50px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #ffffff;
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Embed video with thumbnail */
+        .video {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .video iframe {
+            width: 560px;
+            height: 315px;
+        }
+
+        /* Social media */
+        .socials {
+            margin-top: 20px;
+        }
+
+        .socials a {
+            margin: 0 10px;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        /* Q&A section */
+        .qna-section {
+            margin-top: 40px;
+        }
+
+        .qna-section input[type="text"], .qna-section textarea {
             padding: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            background-color: #0077cc;
+            width: 70%;
+            margin: 10px 0;
+            border: 1px solid #cccccc;
+        }
+
+        .qna-section button {
+            padding: 10px 20px;
+            background-color: #0073ff;
             color: white;
             border: none;
+            cursor: pointer;
+        }
+
+        .qna-section button:hover {
+            background-color: #004aad;
+            transition: 0.3s;
         }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Welcome to My Music Page!</h1>
-    <nav>
-        <a href="#about-me">About Me</a>
-        <a href="#blog">Blog</a>
-        <a href="#song-list">Song List</a>
-        <a href="#qa">Q&A</a>
-    </nav>
-</header>
+<header>Welcome to Sun Ji Woo's Music Page</header>
 
-<section id="about-me" class="active">
-    <h2>About Me</h2>
+<nav>
+    <a href="#about">About Me</a>
+    <a href="#blog">Blog</a>
+    <a href="#song-list">Song List</a>
+    <a href="#qna">Q&A</a>
+</nav>
+
+<section id="about">
+    <h1>About Me</h1>
     <p>Welcome to my music page! I'm Sun Ji Woo, and I love creating music that resonates with emotions and stories.</p>
 </section>
 
 <section id="blog">
-    <h2>Blog</h2>
-    <p>A hobby, passion, or maybe a new valuable skill set. Either way I am having fun with my works ehe.</p>
+    <h1>Blog</h1>
+    <p>A hobby, passion, or maybe a new valuable skill set. Either way, I am having fun with my works ehe.</p>
 </section>
 
 <section id="song-list">
-    <h2>Song List</h2>
-    <div class="video-container">
-        <a href="https://youtu.be/txbbw-JH8XA?si=bzNSHQRe5KTDbjPA" target="_blank">
-            <img src="https://img.youtube.com/vi/txbbw-JH8XA/0.jpg" alt="Don't Need the Moon to Shine">
-            <p>Don't Need the Moon to Shine</p>
-        </a>
+    <h1>Song List</h1>
+    <div class="video">
+        <iframe src="https://www.youtube.com/embed/txbbw-JH8XA" frameborder="0" allowfullscreen></iframe>
     </div>
-    <div class="video-container">
-        <a href="https://youtu.be/R242qdoEeeY?si=fyTOZpes2UvXIP2s" target="_blank">
-            <img src="https://img.youtube.com/vi/R242qdoEeeY/0.jpg" alt="My Dear Somebody">
-            <p>My Dear Somebody</p>
-        </a>
+    <p>Don't Need the Moon to Shine</p>
+    <div class="video">
+        <iframe src="https://www.youtube.com/embed/R242qdoEeeY" frameborder="0" allowfullscreen></iframe>
     </div>
+    <p>My Dear Somebody</p>
 </section>
 
-<section id="qa">
-    <h2>Q&A</h2>
-    <form class="qa-form">
-        <input type="text" placeholder="Your Name" required>
-        <textarea placeholder="Your Question" required></textarea>
-        <button type="submit">Submit</button>
-    </form>
+<section id="qna" class="qna-section">
+    <h1>Q&A</h1>
+    <p>Got any questions? Feel free to ask below!</p>
+    <input type="text" placeholder="Your Name"><br>
+    <textarea rows="5" placeholder="Your Question"></textarea><br>
+    <button type="submit">Submit</button>
 </section>
 
-<footer>
-    <p>Connect with me on <a href="https://instagram.com/sun_jiw00" target="_blank">Instagram</a> and <a href="https://www.youtube.com/@SunJiWoo2505" target="_blank">YouTube</a>.</p>
-</footer>
-
-<script>
-    const links = document.querySelectorAll('nav a');
-    const sections = document.querySelectorAll('section');
-
-    links.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-
-            sections.forEach(section => {
-                section.classList.remove('active');
-            });
-
-            const targetSection = document.querySelector(targetId);
-            targetSection.classList.add('active');
-        });
-    });
-</script>
+<section class="socials">
+    <h2>Connect with me</h2>
+    <a href="https://instagram.com/sun_jiw00" target="_blank">Instagram</a>
+    <a href="https://www.youtube.com/@SunJiWoo2505" target="_blank">YouTube</a>
+</section>
 
 </body>
 </html>
