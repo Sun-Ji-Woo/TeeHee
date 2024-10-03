@@ -6,110 +6,85 @@
     <title>Sun Ji Woo's Song Deck</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #1c1e24;
-            color: #e0e0e0;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #243447;
-            padding: 20px;
-            text-align: center;
+            background-color: #1a1a2e;
             color: #ffffff;
+            font-family: Arial, sans-serif;
+            transition: background-color 0.5s ease;
         }
         nav {
-            margin-top: 10px;
+            background-color: #162447;
+            padding: 15px;
         }
         nav a {
             color: #ffffff;
-            text-decoration: none;
             margin: 0 15px;
-            font-size: 18px;
+            text-decoration: none;
+            transition: color 0.3s;
         }
         nav a:hover {
-            color: #ffc107;
+            color: #e94560;
         }
-        section {
-            padding: 40px;
-            max-width: 1000px;
-            margin: 0 auto;
+        .section {
+            transition: opacity 0.5s ease-in-out;
+            opacity: 0;
+            display: none; /* Hide sections initially */
         }
-        #about {
-            background-color: #2c303b;
-            border-radius: 8px;
-            padding: 20px;
-        }
-        #song-list iframe {
-            width: 100%;
-            height: 350px;
-            border: none;
-            margin-bottom: 20px;
-        }
-        .qna-form input, .qna-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-            border: none;
-        }
-        .qna-form button {
-            background-color: #ffc107;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        footer {
-            background-color: #243447;
-            color: #e0e0e0;
-            padding: 20px;
-            text-align: center;
-        }
-        footer a {
-            color: #ffc107;
-            text-decoration: none;
+        .active {
+            display: block; /* Show the active section */
+            opacity: 1;    /* Fade in */
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Sun Ji Woo's Song Deck</h1>
-        <nav>
-            <a href="#about">About Me</a>
-            <a href="#blog">Blog</a>
-            <a href="#song-list">Song Lists</a>
-            <a href="#qna">QNA</a>
-        </nav>
-    </header>
-
-    <section id="about">
+    <nav>
+        <a href="#about">About Me</a>
+        <a href="#blog">Blog</a>
+        <a href="#song-list">Song List</a>
+        <a href="#qna">Q&A</a>
+    </nav>
+    
+    <div id="about" class="section active">
         <h2>About Me</h2>
-        <p>Hey! I'm Sun Ji Woo, just getting started with making music and having fun with it. I’ve posted two songs on my YouTube channel so far, and I'm excited to put out more soon. This page is a little corner where you can check out my tracks, keep up with my journey, and hopefully vibe with my music. Thanks for dropping by!</p>
-    </section>
-
-    <section id="blog">
+        <p>Welcome to my music page! I'm Sun Ji Woo, and I love creating music that resonates with emotions and stories.</p>
+    </div>
+    
+    <div id="blog" class="section">
         <h2>Blog</h2>
-        <p>[Blog area for future updates on your music, thoughts, or experiences.]</p>
-    </section>
+        <p>Stay tuned for updates and insights into my music journey!</p>
+    </div>
+    
+    <div id="song-list" class="section">
+        <h2>Song List</h2>
+        <ul>
+            <li><a href="https://youtu.be/txbbw-JH8XA?si=IHOcfZJXL4BhSx2J">Don't Need the Moon to Shine</a></li>
+            <li><a href="https://youtu.be/R242qdoEeeY?si=_h4MWUHAIyy5z-Hk">My Dear Somebody</a></li>
+        </ul>
+    </div>
+    
+    <div id="qna" class="section">
+        <h2>Q&A</h2>
+        <p>Feel free to ask me anything about my music or my creative process!</p>
+    </div>
 
-    <section id="song-list">
-        <h2>Song Lists</h2>
-        <iframe src="https://www.youtube.com/embed/txbbw-JH8XA"></iframe>
-        <iframe src="https://www.youtube.com/embed/R242qdoEeeY"></iframe>
-    </section>
+    <script>
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = e.target.getAttribute('href').substring(1);
+                const currentSection = document.querySelector('.active');
 
-    <section id="qna">
-        <h2>QNA</h2>
-        <div class="qna-form">
-            <input type="text" placeholder="Your Name">
-            <textarea placeholder="Your Question"></textarea>
-            <button>Submit</button>
-        </div>
-    </section>
+                if (currentSection) {
+                    currentSection.classList.remove('active');
+                    currentSection.style.opacity = 0; // Fade out
+                }
 
-    <footer>
-        <p>Connect with me on <a href="https://instagram.com/sun_jiw00">Instagram</a> | <a href="https://www.youtube.com/@SunJiWoo2505">YouTube</a> | © 2024 Sun Ji Woo</p>
-    </footer>
+                const newSection = document.getElementById(targetId);
+                newSection.classList.add('active');
+                setTimeout(() => {
+                    newSection.style.opacity = 1; // Fade in
+                }, 50); // Slight delay to allow the fade out to start
+            });
+        });
+    </script>
 </body>
 </html>
