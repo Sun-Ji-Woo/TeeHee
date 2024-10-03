@@ -15,8 +15,8 @@
             text-align: center;
             padding: 20px;
             background: url('https://i.ibb.co/6sSWbjP/IMG-20241004-WA0000.jpg') no-repeat center center;
-            background-size: contain; /* Changed to contain for smaller size */
-            height: 150px; /* Reduced height */
+            background-size: contain;
+            height: 150px;
         }
         nav {
             margin: 10px;
@@ -31,9 +31,13 @@
             padding: 20px;
             display: none;
             transition: all 0.5s ease;
+            opacity: 0;
+            transform: translateY(20px);
         }
         section.active {
             display: block;
+            opacity: 1;
+            transform: translateY(0);
         }
         .song-list {
             display: flex;
@@ -47,7 +51,7 @@
         }
         footer {
             text-align: center;
-            padding: 20px;
+            padding: 40px; /* Added padding to position footer lower */
         }
         .social-links img {
             width: 24px; /* Size of icons */
@@ -64,7 +68,7 @@
     </nav>
     <section id="about" class="active">
         <h2>About Me</h2>
-        <p>Welcome to my music page! I'm Sun Ji Woo, and I love creating music that resonates with emotions and stories.</p>
+        <p>Heya, me is somebody who makes music too I guess. I am a writer, a pretty versatile one I guess since I like to write poems, songs, novels, stories, drama scripts, basically all sorts of writing. People say my writing style is exquisite, maybe I should give in to the praises after all I guess (we need to acknowledge ourselves too right). Well, hope you like my music I guess hehe!</p>
     </section>
     <section id="blog">
         <h2>Blog</h2>
