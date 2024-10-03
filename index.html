@@ -14,9 +14,12 @@
         header {
             text-align: center;
             padding: 20px;
-            background: url('https://i.ibb.co/6sSWbjP/IMG-20241004-WA0000.jpg') no-repeat center center;
-            background-size: contain;
+            background-color: #222; /* Fallback color */
             height: 125px; /* Adjusted height */
+        }
+        header img {
+            width: 100%; /* Set image to full width */
+            height: auto; /* Maintain aspect ratio */
         }
         nav {
             margin: 10px;
@@ -61,7 +64,7 @@
 </head>
 <body>
     <header>
-        <img src="https://i.ibb.co/6sSWbjP/IMG-20241004-WA0000.jpg" alt="Banner" style="width: 100%; height: auto;">
+        <img src="https://i.ibb.co/6sSWbjP/IMG-20241004-WA0000.jpg" alt="Banner">
     </header>
     <nav>
         <a href="#about" class="nav-link">About Me</a>
