@@ -49,6 +49,32 @@
             text-align: center;
             margin: 20px 0;
         }
+        .video-container {
+            margin: 10px 0;
+        }
+        .video-container img {
+            width: 100%;
+            height: auto;
+        }
+        .qa-form {
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+            margin: 20px auto;
+        }
+        .qa-form input, .qa-form textarea {
+            margin: 5px 0;
+            padding: 10px;
+            font-size: 16px;
+        }
+        .qa-form button {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #0077cc;
+            color: white;
+            border: none;
+        }
     </style>
 </head>
 <body>
@@ -75,15 +101,27 @@
 
 <section id="song-list">
     <h2>Song List</h2>
-    <ul>
-        <li><a href="https://youtu.be/txbbw-JH8XA?si=bzNSHQRe5KTDbjPA" target="_blank">Don't Need the Moon to Shine</a></li>
-        <li><a href="https://youtu.be/R242qdoEeeY?si=fyTOZpes2UvXIP2s" target="_blank">My Dear Somebody</a></li>
-    </ul>
+    <div class="video-container">
+        <a href="https://youtu.be/txbbw-JH8XA?si=bzNSHQRe5KTDbjPA" target="_blank">
+            <img src="https://img.youtube.com/vi/txbbw-JH8XA/0.jpg" alt="Don't Need the Moon to Shine">
+            <p>Don't Need the Moon to Shine</p>
+        </a>
+    </div>
+    <div class="video-container">
+        <a href="https://youtu.be/R242qdoEeeY?si=fyTOZpes2UvXIP2s" target="_blank">
+            <img src="https://img.youtube.com/vi/R242qdoEeeY/0.jpg" alt="My Dear Somebody">
+            <p>My Dear Somebody</p>
+        </a>
+    </div>
 </section>
 
 <section id="qa">
     <h2>Q&A</h2>
-    <p>Feel free to ask me anything!</p>
+    <form class="qa-form">
+        <input type="text" placeholder="Your Name" required>
+        <textarea placeholder="Your Question" required></textarea>
+        <button type="submit">Submit</button>
+    </form>
 </section>
 
 <footer>
