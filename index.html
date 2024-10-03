@@ -9,7 +9,7 @@
             background-color: #1a1a2e;
             color: #ffffff;
             font-family: Arial, sans-serif;
-            transition: background-color 0.5s ease;
+            overflow: hidden; /* Prevent scrollbars during transition */
         }
         nav {
             background-color: #162447;
@@ -25,24 +25,28 @@
             color: #e94560;
         }
         .section {
+            position: absolute; /* Allow stacking of sections */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 50px; /* Add padding for content */
             transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-            opacity: 0;
-            transform: translateY(20px); /* Start slightly below */
-            display: none; /* Hide sections initially */
+            opacity: 0; /* Start as invisible */
+            transform: translateY(100%); /* Start from below */
         }
         .active {
-            display: block; /* Show the active section */
-            opacity: 1;    /* Fade in */
-            transform: translateY(0); /* Slide up */
+            opacity: 1; /* Make visible */
+            transform: translateY(0); /* Slide in */
         }
     </style>
 </head>
 <body>
     <nav>
-        <a href="#about">About Me</a>
-        <a href="#blog">Blog</a>
-        <a href="#song-list">Song List</a>
-        <a href="#qna">Q&A</a>
+        <a href="#about" class="nav-link">About Me</a>
+        <a href="#blog" class="nav-link">Blog</a>
+        <a href="#song-list" class="nav-link">Song List</a>
+        <a href="#qna" class="nav-link">Q&A</a>
     </nav>
     
     <div id="about" class="section active">
@@ -69,7 +73,7 @@
     </div>
 
     <script>
-        document.querySelectorAll('nav a').forEach(link => {
+        document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
                 const targetId = e.target.getAttribute('href').substring(1);
@@ -78,15 +82,15 @@
                 if (currentSection) {
                     currentSection.classList.remove('active');
                     currentSection.style.opacity = 0; // Fade out
-                    currentSection.style.transform = 'translateY(20px)'; // Slide down
+                    currentSection.style.transform = 'translateY(-100%)'; // Slide out
                 }
 
                 const newSection = document.getElementById(targetId);
                 newSection.classList.add('active');
                 setTimeout(() => {
                     newSection.style.opacity = 1; // Fade in
-                    newSection.style.transform = 'translateY(0)'; // Slide up
-                }, 50); // Slight delay to allow the fade out to start
+                    newSection.style.transform = 'translateY(0)'; // Slide in
+                }, 50); // Slight delay for transition effect
             });
         });
     </script>
