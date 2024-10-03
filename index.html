@@ -18,12 +18,6 @@
             background-size: contain; /* Changed to contain for smaller size */
             height: 150px; /* Reduced height */
         }
-        header h1 {
-            margin: 0;
-            padding: 20px;
-            color: #fff;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
-        }
         nav {
             margin: 10px;
         }
@@ -55,12 +49,13 @@
             text-align: center;
             padding: 20px;
         }
+        .social-links img {
+            width: 24px; /* Size of icons */
+            margin: 0 10px; /* Spacing between icons */
+        }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Sun Ji Woo's Music Page</h1>
-    </header>
     <nav>
         <a href="#about" class="nav-link">About Me</a>
         <a href="#blog" class="nav-link">Blog</a>
@@ -97,8 +92,11 @@
         </form>
     </section>
     <footer>
-        <p>Follow me on Instagram: <a href="https://instagram.com/sun_jiw00">sun_jiw00</a></p>
-        <p>Check my YouTube: <a href="https://www.youtube.com/@SunJiWoo2505">Sun Ji Woo</a></p>
+        <p>Follow me on:</p>
+        <div class="social-links">
+            <a href="https://instagram.com/sun_jiw00"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram"></a>
+            <a href="https://www.youtube.com/@SunJiWoo2505"><img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube"></a>
+        </div>
     </footer>
     <script>
         const navLinks = document.querySelectorAll('.nav-link');
