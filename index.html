@@ -9,7 +9,8 @@
             background-color: #1a1a2e;
             color: #ffffff;
             font-family: Arial, sans-serif;
-            overflow: hidden; /* Prevent scrollbars during transition */
+            margin: 0;
+            padding: 0;
         }
         nav {
             background-color: #162447;
@@ -24,16 +25,21 @@
         nav a:hover {
             color: #e94560;
         }
+        .container {
+            position: relative;
+            height: 100vh; /* Full viewport height */
+            overflow: hidden; /* Hide overflow */
+        }
         .section {
-            position: absolute; /* Allow stacking of sections */
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             padding: 50px; /* Add padding for content */
-            transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
             opacity: 0; /* Start as invisible */
-            transform: translateY(100%); /* Start from below */
+            transform: translateY(20px); /* Start slightly below */
+            transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
         }
         .active {
             opacity: 1; /* Make visible */
@@ -49,27 +55,29 @@
         <a href="#qna" class="nav-link">Q&A</a>
     </nav>
     
-    <div id="about" class="section active">
-        <h2>About Me</h2>
-        <p>Welcome to my music page! I'm Sun Ji Woo, and I love creating music that resonates with emotions and stories.</p>
-    </div>
-    
-    <div id="blog" class="section">
-        <h2>Blog</h2>
-        <p>A hobby, passion, or maybe a new valuable skill set. Either way, I am having fun with my works, ehe.</p>
-    </div>
-    
-    <div id="song-list" class="section">
-        <h2>Song List</h2>
-        <ul>
-            <li><a href="https://youtu.be/txbbw-JH8XA?si=IHOcfZJXL4BhSx2J">Don't Need the Moon to Shine</a></li>
-            <li><a href="https://youtu.be/R242qdoEeeY?si=_h4MWUHAIyy5z-Hk">My Dear Somebody</a></li>
-        </ul>
-    </div>
-    
-    <div id="qna" class="section">
-        <h2>Q&A</h2>
-        <p>Feel free to ask me anything about my music or my creative process!</p>
+    <div class="container">
+        <div id="about" class="section active">
+            <h2>About Me</h2>
+            <p>Welcome to my music page! I'm Sun Ji Woo, and I love creating music that resonates with emotions and stories.</p>
+        </div>
+        
+        <div id="blog" class="section">
+            <h2>Blog</h2>
+            <p>A hobby, passion, or maybe a new valuable skill set. Either way, I am having fun with my works, ehe.</p>
+        </div>
+        
+        <div id="song-list" class="section">
+            <h2>Song List</h2>
+            <ul>
+                <li><a href="https://youtu.be/txbbw-JH8XA?si=IHOcfZJXL4BhSx2J">Don't Need the Moon to Shine</a></li>
+                <li><a href="https://youtu.be/R242qdoEeeY?si=_h4MWUHAIyy5z-Hk">My Dear Somebody</a></li>
+            </ul>
+        </div>
+        
+        <div id="qna" class="section">
+            <h2>Q&A</h2>
+            <p>Feel free to ask me anything about my music or my creative process!</p>
+        </div>
     </div>
 
     <script>
@@ -82,14 +90,14 @@
                 if (currentSection) {
                     currentSection.classList.remove('active');
                     currentSection.style.opacity = 0; // Fade out
-                    currentSection.style.transform = 'translateY(-100%)'; // Slide out
+                    currentSection.style.transform = 'translateY(-20px)'; // Slide up
                 }
 
                 const newSection = document.getElementById(targetId);
                 newSection.classList.add('active');
                 setTimeout(() => {
                     newSection.style.opacity = 1; // Fade in
-                    newSection.style.transform = 'translateY(0)'; // Slide in
+                    newSection.style.transform = 'translateY(0)'; // Slide down
                 }, 50); // Slight delay for transition effect
             });
         });
