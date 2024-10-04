@@ -10,15 +10,14 @@
             background-color: #141414;
             color: white;
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
         }
         header {
             text-align: center;
             padding: 20px;
             background: url('https://i.ibb.co/6sSWbjP/IMG-20241004-WA0000.jpg') no-repeat center center;
-            background-size: contain;
-            height: 150px;
+            background-size: cover;
+            position: relative;
+            height: 125px;
         }
         nav {
             margin: 10px;
@@ -29,12 +28,10 @@
             margin: 0 15px;
             text-decoration: none;
             font-weight: bold;
-            cursor: pointer;
         }
         section {
             padding: 20px;
             display: none;
-            opacity: 0;
             transition: opacity 0.5s ease-in-out;
         }
         section.active {
@@ -54,13 +51,9 @@
         footer {
             text-align: center;
             padding: 20px;
-            position: relative;
+            position: fixed;
             bottom: 0;
             width: 100%;
-        }
-        footer a {
-            color: white;
-            margin: 0 10px;
         }
     </style>
 </head>
@@ -74,11 +67,12 @@
     </nav>
     <section id="about" class="active">
         <h2>About Me</h2>
-        <p>Heya, me is somebody who makes music too I guess. I am a writer, a pretty versatile one I guess since I like to write poems, songs, novels, stories, drama scripts, basically all sorts of writing. People say my writing style is exquisite, maybe I should give in to the praises after all I guess (we need to acknowledge ourselves too right). Well, hope you like my music I guess hehe!<br><br>P.S. I guess a lot( a guessing person) fufu (^^)</p>
+        <p>Heya, me is somebody who makes music too I guess. I am a writer, a pretty versatile one I guess since I like to write poems, songs, novels, stories, drama scripts, basically all sorts of writing. People say my writing style is exquisite, maybe I should give in to the praises after all I guess (we need to acknowledge ourselves too right). Well, hope you like my music I guess hehe! P.S. I guess a lot (a guessing person) fufu (^^)</p>
     </section>
     <section id="blog">
         <h2>Blog</h2>
-        <p>[Dated: 3rd October 2024]<br>A hobby, passion, or maybe a new valuable skill set. Either way, I am having fun with my works ehe.</p>
+        <p>[Dated: 3rd October 2024]</p>
+        <p>A hobby, passion, or maybe a new valuable skill set. Either way, I am having fun with my works ehe.</p>
     </section>
     <section id="songs">
         <h2>Song List</h2>
@@ -113,12 +107,12 @@
             link.addEventListener('click', function() {
                 sections.forEach(section => {
                     section.classList.remove('active');
-                    section.style.display = 'none'; // hide all
+                    section.style.display = 'none'; // Hide all sections
                 });
                 const target = document.querySelector(this.getAttribute('href'));
                 target.classList.add('active');
-                target.style.display = 'block'; // show the current one
-                window.scrollTo({ top: 0, behavior: 'smooth' }); // adjust the scroll position
+                target.style.display = 'block'; // Show current section
+                target.scrollIntoView({ behavior: 'smooth' }); // Smooth scroll
             });
         });
     </script>
