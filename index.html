@@ -32,19 +32,17 @@
         section {
             padding: 20px;
             display: none;
-            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
             opacity: 0;
-            transform: translateY(20px);
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
         }
         section.active {
             display: block;
             opacity: 1;
-            transform: translateY(0);
         }
         .song-list {
             display: flex;
             flex-direction: column;
-            gap: 15px; /* Increased gap */
+            gap: 15px;
         }
         .song {
             padding: 10px;
@@ -53,11 +51,30 @@
         }
         footer {
             text-align: center;
-            padding: 40px; /* Added padding to position footer lower */
+            padding: 40px;
         }
         .social-links img {
-            width: 24px; /* Size of icons */
-            margin: 0 10px; /* Spacing between icons */
+            width: 24px;
+            margin: 0 10px;
+        }
+        
+        /* Diagonal Shape CSS Transition */
+        section {
+            position: relative;
+        }
+        section::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background-color: #141414;
+            clip-path: polygon(0 100%, 100% 0, 100% 100%, 0 100%);
+            transition: all 1s ease;
+        }
+        section.active::before {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
         }
     </style>
 </head>
@@ -77,7 +94,7 @@
     </section>
     <section id="blog">
         <h2>Blog</h2>
-        <p>A hobby, passion, or maybe a new valuable skill set. Either way, I am having fun with my works ehe.</p>
+        <p>[Dated: 3rd October 2024]<br>A hobby, passion, or maybe a new valuable skill set. Either way, I am having fun with my works ehe.</p>
     </section>
     <section id="songs">
         <h2>Song List</h2>
@@ -113,11 +130,13 @@
 
         navLinks.forEach(link => {
             link.addEventListener('click', function(event) {
-                event.preventDefault(); // Prevent default anchor behavior
+                event.preventDefault();
                 sections.forEach(section => section.classList.remove('active'));
                 const target = document.querySelector(this.getAttribute('href'));
-                target.classList.add('active');
-                window.scrollTo({ top: target.offsetTop, behavior: 'smooth' });
+                setTimeout(() => {
+                    target.classList.add('active');
+                    window.scrollTo({ top: target.offsetTop, behavior: 'smooth' });
+                }, 200); // Slight delay for diagonal transition effect
             });
         });
     </script>
