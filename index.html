@@ -33,13 +33,11 @@
             padding: 20px;
             display: none;
             opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+            transition: opacity 0.6s ease-in-out;
         }
         section.active {
             display: block;
             opacity: 1;
-            transform: translateY(0);
         }
         .song-list {
             display: flex;
@@ -60,23 +58,11 @@
             margin: 0 10px;
         }
 
-        /* Diagonal Shape CSS Transition */
-        section {
+        /* Footer position */
+        footer {
             position: relative;
-        }
-        section::before {
-            content: '';
-            position: absolute;
-            top: -50px;
-            left: 0;
+            bottom: 0;
             width: 100%;
-            height: 100px;
-            background-color: #141414;
-            clip-path: polygon(0 100%, 100% 0, 100% 100%, 0 100%);
-            transition: all 1s ease;
-        }
-        section.active::before {
-            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
         }
     </style>
 </head>
@@ -138,7 +124,7 @@
                 setTimeout(() => {
                     target.classList.add('active');
                     window.scrollTo({ top: target.offsetTop, behavior: 'smooth' });
-                }, 200); // Slight delay for diagonal transition effect
+                }, 200);
             });
         });
     </script>
