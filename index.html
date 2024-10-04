@@ -12,8 +12,8 @@
             font-family: Arial, sans-serif;
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
-            margin: 0;
+            min-height: 100vh; /* Ensures the body takes up full height */
+            margin: 0; /* Removes default margin */
         }
         header {
             text-align: center;
@@ -39,6 +39,7 @@
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.6s ease-in-out, visibility 0s 0.6s;
+            flex: 1; /* This allows sections to grow and fill the space */
         }
         section.active {
             opacity: 1;
@@ -57,8 +58,7 @@
         }
         footer {
             text-align: center;
-            padding: 40px;
-            margin-top: auto;
+            padding: 20px; /* Adjusted padding */
         }
         .social-links img {
             width: 24px;
